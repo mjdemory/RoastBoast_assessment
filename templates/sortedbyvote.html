@@ -1,0 +1,28 @@
+<a href="/">Home</a>
+<a href="/create_post_view/">Create Post</a>
+<a href="/boast_view/">Boasts</a>
+<a href="/roast_view/">Roasts</a>
+<a href="/sortbyvote_view/">Sort by Votes</a>
+
+<div>
+    {% for post in votes %}
+<ul>
+    {% if post.choices %}
+    <h2>Boast</h2>
+    {% else %}
+    <h2>Roast</h2>
+    {% endif %}
+    {{ post.votes }}
+    <br>
+    {{post.body}}
+    <br>
+    <br>
+    <a href="/upvote_view/{{ post.id }}/">Up Vote</a>
+    <a href="/downvote_view/{{ post.id }}/">Down Vote</a>
+    <br>
+    <br>
+    {{ post.post_date }}
+</ul>
+    {% endfor %}
+
+</div>

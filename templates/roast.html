@@ -1,0 +1,24 @@
+<a href="/">Home</a>
+<a href="/create_post_view/">Create Post</a>
+<a href="/boast_view/">Boasts</a>
+<a href="/roast_view/">Roasts</a>
+
+<div>
+    {% for roast in posts %}
+<ul>
+    {% if not roast.choices %}
+    <h2>Roast</h2>
+    {% endif %}
+    {{ roast.votes }}
+    <br>
+    {{roast.body}}
+    <br>
+    <br>
+    <a href="/upvote_view/{{ roast.id }}/">Up Vote</a>
+    <a href="/downvote_view/{{ roast.id }}/">Down Vote</a>
+    <br>
+    <br>
+    {{ roast.post_date }}
+</ul>
+    {% endfor %}
+</div>
